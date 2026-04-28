@@ -5,6 +5,11 @@ A simple benchmark project showing how common PyTorch training optimizations can
 Base model used: `Qwen/Qwen3-0.6B`.
 
 ---
+### Before and After Optimizations
+<img width="760" height="402" alt="Screenshot 2026-04-27 at 4 40 56 PM" src="https://github.com/user-attachments/assets/08ec7759-4ab9-457a-8d5b-73c572a218b9" />
+
+
+---
 
 ## Installation
 
@@ -55,4 +60,3 @@ dcgmi dmon -e 203,1002,1003,1004,1006,1007,1008,1013,1014,1005,252,250,155,150,1
 | + Batch size 32     |                      |                 |           |           |
 | + DataLoader tweaks | 100K+                | ~70             | ~80       | ~5        |
 
-<img width="760" height="402" alt="Screenshot 2026-04-27 at 4 40 56 PM" src="https://github.com/user-attachments/assets/08ec7759-4ab9-457a-8d5b-73c572a218b9" />
