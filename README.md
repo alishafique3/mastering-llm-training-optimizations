@@ -5,8 +5,6 @@ A simple benchmark project showing how common PyTorch training optimizations can
 Base model used: `Qwen/Qwen3-0.6B`.
 
 
----
-
 ## Installation
 
 ```bash
