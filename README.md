@@ -1,4 +1,4 @@
-# 🚀 PyTorch LLM Training Optimizations
+# PyTorch LLM Training Optimizations
 
 A simple benchmark project showing how common PyTorch training optimizations can significantly improve throughput for training a causal language model.
 
@@ -6,7 +6,7 @@ Base model used: `Qwen/Qwen3-0.6B`.
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 # Create conda env
@@ -20,7 +20,7 @@ pip install uv
 uv pip install transformers datasets accelerate vllm torch
 ```
 
-## ⚡ Optimization Steps
+## Optimization Steps
 
 Applied incrementally — each one stacks on the previous:
 
@@ -35,7 +35,7 @@ Applied incrementally — each one stacks on the previous:
 | 6 | **Larger batch size** | `batch_size=32` |
 | 7 | **DataLoader speedups** | `num_workers=4`, `pin_memory=True`, `non_blocking=True` |
 
-## 📊 Metrics (DCGM)
+## Metrics (DCGM)
 
 Monitor live with:
 
@@ -43,3 +43,16 @@ Monitor live with:
 dcgmi dmon -e 203,1002,1003,1004,1006,1007,1008,1013,1014,1005,252,250,155,150,140 -d 2000
 ```
 
+## Results
+| Optimization        | Throughput (tok/sec) | GPU Memory (GB) | THMMA (%) | FP32A (%) |
+|---------------------|----------------------|-----------------|-----------|-----------|
+| Baseline (FP32)     | 3.0K                 | 23.7            | 0.1       | 68.4      |
+| + TF32              |                      |                 |           |           |
+| + BF16              |                      |                 |           |           |
+| + SDPA / Flash Attn |                      |                 |           |           |
+| + Fused AdamW       |                      |                 |           |           |
+| + torch.compile     |                      |                 |           |           |
+| + Batch size 32     |                      |                 |           |           |
+| + DataLoader tweaks | 100K+                | ~70             | ~80       | ~5        |
+
+<img width="760" height="402" alt="Screenshot 2026-04-27 at 4 40 56 PM" src="https://github.com/user-attachments/assets/08ec7759-4ab9-457a-8d5b-73c572a218b9" />
