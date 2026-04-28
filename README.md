@@ -4,10 +4,6 @@ A simple benchmark project showing how common PyTorch training optimizations can
 
 Base model used: `Qwen/Qwen3-0.6B`.
 
----
-### Before and After Optimizations
-<img width="760" height="402" alt="Screenshot 2026-04-27 at 4 40 56 PM" src="https://github.com/user-attachments/assets/08ec7759-4ab9-457a-8d5b-73c572a218b9" />
-
 
 ---
 
@@ -23,6 +19,9 @@ pip install uv
 
 # Install dependencies
 uv pip install transformers datasets accelerate vllm torch
+
+# Run
+python optim.py
 ```
 
 ## Optimization Steps
@@ -52,11 +51,12 @@ dcgmi dmon -e 203,1002,1003,1004,1006,1007,1008,1013,1014,1005,252,250,155,150,1
 | Optimization        | Throughput (tok/sec) | GPU Memory (GB) | THMMA (%) | FP32A (%) |
 |---------------------|----------------------|-----------------|-----------|-----------|
 | Baseline (FP32)     | 3.0K                 | 23.7            | 0.1       | 68.4      |
-| + TF32              |                      |                 |           |           |
-| + BF16              |                      |                 |           |           |
-| + SDPA / Flash Attn |                      |                 |           |           |
-| + Fused AdamW       |                      |                 |           |           |
-| + torch.compile     |                      |                 |           |           |
-| + Batch size 32     |                      |                 |           |           |
-| + DataLoader tweaks | 100K+                | ~70             | ~80       | ~5        |
+| + TF32              | 8.7K                 | 23.7            | 26.9      | 2.5       |
+| + BF16              | 11.3K                | 15.7            | 17.7      | 3.3       |
+| + SDPA Attention    | 15.4K                | 9.8             | 22.5      | 3.3       |
+| + Fused AdamW       | 16.7K                | 9.8             | 24.3      | 3.3       |
+| + torch.compile     | 21.5K                | 8.5             | 32.6      | 6.5       |
+| + Batch size 32     | 28.3K                | 42.4            | 43.6      | 8.2       |
+
+
 
