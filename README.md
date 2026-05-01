@@ -49,7 +49,7 @@ Monitor live with:
 dcgmi dmon -e 203,1002,1003,1004,1006,1007,1008,1013,1014,1005,252,250,155,150,140 -d 2000
 ```
 
-## Results
+## Results on 1x A100
 | Optimization        | Throughput (tok/sec) | GPU Memory (GB) | THMMA (%) | FP32A (%) |
 |---------------------|----------------------|-----------------|-----------|-----------|
 | Baseline (FP32)     | 3.0K                 | 23.7            | 0.1       | 68.4      |
