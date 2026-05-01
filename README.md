@@ -2,7 +2,11 @@
 
 A simple benchmark project showing how common PyTorch training optimizations can significantly improve throughput for training a causal language model.
 
-Base model used: `Qwen/Qwen3-0.6B`.
+Base model used: `Qwen/Qwen3-0.6B`. Code uses following inline comments format:
+
+🐢: Slow method
+
+🚀: Optimization technique
 
 
 ## Installation
