@@ -50,6 +50,11 @@ dcgmi dmon -e 203,1002,1003,1004,1006,1007,1008,1013,1014,1005,252,250,155,150,1
 ```
 
 ## Results on 1x A100
+
+THMMA: Tensor Core active %
+
+FP32A: FP32 CUDA core active %
+
 | Optimization        | Throughput (tok/sec) | GPU Memory (GB) | THMMA (%) | FP32A (%) |
 |---------------------|----------------------|-----------------|-----------|-----------|
 | Baseline (FP32)     | 3.0K                 | 23.7            | 0.1       | 68.4      |
